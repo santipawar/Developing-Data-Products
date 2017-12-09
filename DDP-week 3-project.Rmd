@@ -1,0 +1,30 @@
+---
+title: "Developing Data Products Week 3 Project"
+author: "Santosh Pawar"
+date: "December 8, 2017"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+  beamer_presentation: default
+---
+
+#Title: Mpg performance of cars by wt based on number of cylinders
+
+##Date: Dec 08, 2017
+
+
+```{r Mpg performance of cars, echo = TRUE, message=FALSE}
+library('ggplot2')
+library(plotly)
+library(knitr)
+
+data("mtcars")
+
+head(mtcars)
+
+#Plot of mpg vs wt based on number of cylinders
+p <- plot_ly(mtcars, x = ~mpg, y = ~wt, color = ~cyl, size = ~wt)
+
+(gg <- ggplotly(p))
+
+```
